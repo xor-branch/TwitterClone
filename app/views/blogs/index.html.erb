@@ -1,9 +1,11 @@
 <h1>Posts</h1>
-<div class="">
-  <% Blog.all.each do |blog| %>
-  <p><%= blog.content %></p>
+<table>
+  <% @blog.each do |blog| %>
+<tr>
+    <td><%= blog.content %></td>
+    <td><%= link_to "show", blog_path(blog.id) %></td>
+</tr>
   <% end %>
-</div>
-
-
+</table>
+<br>
 <%= link_to "New post", new_blog_path %>

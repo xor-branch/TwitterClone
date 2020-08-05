@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   def index
-    Blog.all
+    @blog=Blog.all
   end
 
   def new
@@ -8,11 +8,17 @@ class BlogsController < ApplicationController
   end
 
   def create
-    Blog.create(blog_params)
-    redirect_to new_blog_path
+    @blog=Blog.new(blog_params)
+    if @blog.save
+    redirect_to blogs_path, notice: "Post was successfully created."
+    else
+      render :new
+    end
   end
 
-
+ def show
+   @blog=Blog.find(params[:id])
+ end
 
 
   private

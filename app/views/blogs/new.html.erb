@@ -1,7 +1,16 @@
 <h1>NEW POST</h1>
+<% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <p><%= @blog.errors.count %> error(s)</p>
+      <ul>
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <div class="">
   <%= form_with(model: @blog, local: true) do |form| %>
-
     <div class="blog_title">
       <%= form.text_field :content %>
       <%= form.submit "new post"%>
