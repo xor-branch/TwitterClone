@@ -1,14 +1,17 @@
-<div><%= notice %></div>
+<p class="alert alert-success" role="alert">
+  <%= notice %>
+</p>
 
-<h1>Posts</h1>
-<table>
+
+<table class="table table-striped">
+
   <% @blog.each do |blog| %>
 <tr>
     <td><%= blog.content %></td>
-    <td><%= link_to "edit", edit_blog_path(blog.id),data: { confirm: 'Are you sure?' }  %></td>
-    <td><%= link_to 'Destroy',blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><span class="badge badge-pill badge-warning"><%= link_to "edit", edit_blog_path(blog.id),data: { confirm: 'Are you sure?' } %></span></td>
+    <td><span class="badge badge-pill badge-danger"><%= link_to 'Destroy',blog_path(blog.id), method: :delete, data: { confirm:'Are you sure?'} %></span></td>
 </tr>
   <% end %>
 </table>
 <br>
-<%= link_to "New post", new_blog_path %>
+<span class="badge badge-pill badge-primary"><%= link_to "New post", new_blog_path %></span></td>

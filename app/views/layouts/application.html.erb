@@ -4,12 +4,22 @@
     <title>TwitterClone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <header>
+    <ul>
+      <li><a href="/blogs">TwitterClone</a></li>
+      <li><a href="/blogs/new">New post</a></li>
+
+    </ul>
+  </header>
     <%= yield %>
+    <footer>
+   <p>TwitterClone</p>
+   <p>© 2020 DIVE INTO CODE.</p>
+ </footer>
   </body>
 </html>

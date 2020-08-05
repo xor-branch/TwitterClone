@@ -1,5 +1,6 @@
+
 <% if @blog.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-warning" role="alert">
       <p><%= @blog.errors.count %> error(s)</p>
       <ul>
       <% @blog.errors.full_messages.each do |msg| %>
@@ -8,12 +9,11 @@
       </ul>
     </div>
   <% end %>
-<div class="">
-  <%= form_with(model: @blog, url: choose_new_or_edit,local: true) do |form| %>
-    <div class="blog_title">
-      <%= form.text_field :content %>
-      <%= form.submit "new post"%>
-    </div>
 
+<div class="container">
+  <h2>New post</h2>
+  <%= form_with(model: @blog, url: choose_new_or_edit,local: true) do |form| %>
+     <%= form.text_field :content %>
+      <%= form.submit "new post"%>
   <% end %>
 </div>
