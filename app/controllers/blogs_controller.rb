@@ -10,10 +10,14 @@ class BlogsController < ApplicationController
 
   def create
     @blog=Blog.new(blog_params)
-    if @blog.save
-    redirect_to blogs_path, notice: "Post was successfully created."
-    else
+    if params[:back]
       render :new
+    else
+      if @blog.save
+      redirect_to blogs_path, notice: "Post was successfully created."
+      else
+        render :new
+      end
     end
   end
 
@@ -38,6 +42,11 @@ class BlogsController < ApplicationController
     @blog.destroy
     redirect_to blogs_path, notice: "Post was successfully destroy."
   end
+  def confirm
+    @blog = Blog.new(blog_params)
+    render :new if @blog.invalid?
+  end
+
   private
   def blog_params
     params.require(:blog).permit(:content)
