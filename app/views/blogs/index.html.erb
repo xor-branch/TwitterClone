@@ -1,9 +1,12 @@
+<div><%= notice %></div>
+
 <h1>Posts</h1>
 <table>
   <% @blog.each do |blog| %>
 <tr>
     <td><%= blog.content %></td>
-    <td><%= link_to "show", blog_path(blog.id) %></td>
+    <td><%= link_to "edit", edit_blog_path(blog.id),data: { confirm: 'Are you sure?' }  %></td>
+    <td><%= link_to 'Destroy',blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
   <% end %>
 </table>
