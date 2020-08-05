@@ -1,0 +1,13 @@
+<h1>NEW POST</h1>
+<div class="">
+  <%= form_with(model: @blog, local: true) do |form| %>
+
+    <div class="blog_title">
+      <%= form.text_field :content %>
+      <%= form.submit "new post"%>
+    </div>
+
+  <% end %>
+</div>
+
+<%= link_to "Home", blogs_path %>

@@ -1,0 +1,9 @@
+<h1>Posts</h1>
+<div class="">
+  <% Blog.all.each do |blog| %>
+  <p><%= blog.content %></p>
+  <% end %>
+</div>
+
+
+<%= link_to "New post", new_blog_path %>
